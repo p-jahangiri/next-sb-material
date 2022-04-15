@@ -23,7 +23,8 @@ justify-content: center;
 `;
 export const TextTitle = styled.h5`
 color: rgb(93, 93, 97);
+break-word: break-all;
 position: absolute;
 margin-top: 100px;
 
-`;
+`;  

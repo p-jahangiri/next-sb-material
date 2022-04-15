@@ -9,40 +9,48 @@ export interface ActionCardProps {
   img?: string;
   textCard?: string;
   backgroundColor?: string;
+  color?: string;
+  marginRight?: number;
+  height?: number;
+  width?: number;
+  onClick?: () => void;
 }
 const ActionCard: React.FC<ActionCardProps> = ({
   img,
   textCard,
   backgroundColor,
+  color,
+  marginRight,
+  height,
+  width,
+  onClick,
 }) => {
   return (
     <Card
+      onClick={onClick}
       sx={{
-        maxWidth: 250,
-        minWidth: 230,
+        width: width? width: 230,
         maxHeight: 900,
-        marginRight: "4rem",
+        marginRight: marginRight,
         backgroundColor: backgroundColor,
       }}
     >
       <CardActionArea>
         <CardMedia
-          sx={{ width: "100%", height: "150px" }}
+          sx={{ width: "100%" }}
           component="img"
-          height="auto"
+          height={height ? height : 150}
           image={img ? img : "https://source.unsplash.com/random"}
           alt="green iguana"
         />
         <CardContent>
           <Typography
             variant="body2"
-            color="text.secondary"
+            color={color ? color : "text.secondary"}
             dir="rtl"
             marginTop="10px"
           >
-            {textCard
-              ? textCard
-              : "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است"}
+            {textCard ? textCard : "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است"}
           </Typography>
         </CardContent>
       </CardActionArea>

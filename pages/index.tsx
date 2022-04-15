@@ -1,14 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import ActionCard from "../components/ActionCard";
+import ActionCard from "../components/molecules/ActionCard";
 import { Slider, SliderItem, Title, TextTitle } from "./Home.style";
 import { DataTitle, DataCard } from "../static/Data";
 
 interface Props {
   backgroundColor?: string;
+  color?: string | undefined;
+  marginRight?: number;
 }
-const Home: NextPage = ({ backgroundColor}: Props) => {
+const Home: NextPage = ({ backgroundColor, color, marginRight }: Props) => {
   return (
     <div
       className={styles.container}
@@ -27,8 +29,11 @@ const Home: NextPage = ({ backgroundColor}: Props) => {
           <SliderItem style={{ display: "flex", justifyContent: "center" }}>
             {DataCard.map((item: any, index: number) => (
               <ActionCard
+                key={index}
                 textCard={item.title}
                 img={item.img}
+                color={color}
+                marginRight={marginRight ? marginRight : 12}
               />
             ))}
           </SliderItem>

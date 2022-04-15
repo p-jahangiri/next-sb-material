@@ -1,13 +1,16 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import ActionCard from "../components/ActionCard";
+import ActionCard from "../../components/molecules/ActionCard";
 
 
 export default {
-  title: "components/ActionCard",
+  title: "Molecules/ActionCard",
   component: ActionCard,
   argTypes: {
     backgroundColor: { control: "color" },
+    height: { control: "number" },
+    width: { control: "number" },
+     onClick: { action: 'clicked' } 
   },
 } as ComponentMeta<typeof ActionCard>;
 
